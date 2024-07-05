@@ -2,7 +2,7 @@ from django.db import models
 
 from core.models import Marca, Categoria
 
-class modelo (models.Model):
+class Modelo (models.Model):
     nome = models.CharField(max_length=100)
     marca = models.ForeignKey(
         Marca, on_delete=models.PROTECT, related_name="modelos")
