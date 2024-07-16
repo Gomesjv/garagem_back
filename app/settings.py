@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "core",
+    "uploader",
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,8 @@ PASSAGE_API_KEY = os.getenv("PASSAGE_API_KEY", "api_key")
 PASSAGE_AUTH_STRATEGY = 2
 
 print(f"{MODE = } \n{MEDIA_URL = } \n{DATABASES = }")
+
+# App Uploader settings
+MEDIA_ENDPOINT = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+FILE_UPLOAD_PERMISSIONS = 0o640

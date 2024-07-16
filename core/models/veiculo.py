@@ -1,8 +1,18 @@
 from django.db import models    
 
+from uploader.models import Image
+
 from core.models import Cor, Acessorio, Modelo
 
 class Veiculo (models.Model):
+    foto_veiculo = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+    )
     modelo = models.ForeignKey(
         Modelo, on_delete=models.PROTECT, related_name="veiculos")
     cor = models.ForeignKey(
