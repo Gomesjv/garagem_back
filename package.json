@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "vite-plugin-pwa": "^0.20.1",
+    "workbox-precaching": "^7.1.0"
+  }
+}

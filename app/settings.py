@@ -5,6 +5,8 @@ from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
 
+import os
+
 # Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 
@@ -135,10 +137,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "core.User"
 
 REST_FRAMEWORK = {
-    # "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
-    # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissions",),
-    # "DEFAULT_AUTHENTICATION_CLASSES": ("core.authentication.TokenAuthentication",),
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",),
+    #"DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
+    #"DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissions",),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("core.authentication.TokenAuthentication",),
+    #"DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "PAGE_SIZE": 10,
@@ -161,7 +163,3 @@ PASSAGE_AUTH_STRATEGY = 2
 
 print(f"{MODE = } \n{MEDIA_URL = } \n{DATABASES = }")
 
-# App Uploader settings
-MEDIA_ENDPOINT = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-FILE_UPLOAD_PERMISSIONS = 0o640
